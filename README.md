@@ -43,8 +43,6 @@ ContactInfoProject.sln
 
 project loaded with updated details.
 
-
-
 ## Running the tests
 
 Following Test cases are available on "ContactInfoProject.Tests" project.
@@ -66,7 +64,9 @@ Publish the project using file system. Deployed on IIS7.
 
 ## Authors
 
-* **Nitin Kurle** - *Initial work* 
+* **Nitin Kurle** 	- *Initial work* 
+					- *Modify test cases* 
+
 
 ## License
 
