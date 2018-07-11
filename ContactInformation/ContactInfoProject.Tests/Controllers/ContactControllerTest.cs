@@ -111,6 +111,31 @@ namespace ContactInfoProject.Tests.Controllers
         {
             return GetContactName(1, "John", "Doe", "john.doe@gmmail.com", "987654321", true);
         }
+		
+		// <summary>
+        /// This test to create post on success
+        /// </summary>
+        [TestMethod]
+        public void Test_To_Create_Post_Redirect_OnSuccess()
+        {
+            var controller = GetContactController(new InMemoryContactRepository());
+            tbl_contact contact = GetContactID();
+            var result = (RedirectToRouteResult)controller.Create(contact);
+            Assert.AreEqual("Index", result.RouteValues["action"]);
+        }
+
+        /// <summary>
+        /// This test is check view is not valid view
+        /// </summary>
+        [TestMethod]
+        public void Test_To_View_Is_Not_Valid_View()
+        {
+            var controller = GetContactController(new InMemoryContactRepository());
+            controller.ModelState.AddModelError("", "This view is nit valid");
+            var model = GetContactName(1, "", "", "", "", true);
+            var result = (ViewResult)controller.Create(model);
+            Assert.AreEqual("", result.ViewName);
+        }
 
 
     }
